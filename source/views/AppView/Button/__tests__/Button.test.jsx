@@ -43,46 +43,6 @@ describe('<Button>', () => {
         expect(tree).toMatchSnapshot();
     });
 
-    it('lg', () => {
-        const tree = renderer.create(
-            <Button lg>
-                Some text
-            </Button>,
-        ).toJSON();
-
-        expect(tree).toMatchSnapshot();
-    });
-
-    it('primary', () => {
-        const tree = renderer.create(
-            <Button primary>
-                Some text
-            </Button>,
-        ).toJSON();
-
-        expect(tree).toMatchSnapshot();
-    });
-
-    it('danger', () => {
-        const tree = renderer.create(
-            <Button danger>
-                Some text
-            </Button>,
-        ).toJSON();
-
-        expect(tree).toMatchSnapshot();
-    });
-
-    it('block', () => {
-        const tree = renderer.create(
-            <Button block>
-                Some text
-            </Button>,
-        ).toJSON();
-
-        expect(tree).toMatchSnapshot();
-    });
-
     it('onClick', () => {
         let clicked = false;
         const wrapper = mount(
@@ -91,7 +51,7 @@ describe('<Button>', () => {
             </Button>,
         );
 
-        wrapper.find('.btn').simulate('click');
+        wrapper.find('.button').simulate('click');
         expect(clicked).toBe(true);
     });
 });
