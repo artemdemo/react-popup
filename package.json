@@ -25,8 +25,10 @@
   "homepage": "https://github.com/artemdemo/react-popup#readme",
   "dependencies": {
     "classnames": "^2.2.5",
+    "lodash": "^4.17.10",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
+    "react-click-outside": "^3.0.1",
     "react-dom": "^16.3.2"
   },
   "devDependencies": {
