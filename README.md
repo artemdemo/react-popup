@@ -1,37 +1,4 @@
-# React with webpack - starter pack
-
-Basic packages and scripts to start app developing in react, redux and webpack
-
-## Packages
-* react
-    - react-router
-* redux
-* webpack
-    - webpack-dev-server
-* less
-* bootstrap css
-
-## Getting started
-
-```
-$ git clone git@github.com:artemdemo/react-webpack-starter.git YOUR_APP_NAME
-```
-
-```
-$ cd YOUR_APP_NAME
-```
-
-```
-$ npm install
-```
-
-You also can use `npm i` instead, but yarn is better.
-
-And finally you'll probably want replace `.git` folder with yours:
-
-```
-$ rm -rf .git/ && git init
-```
+# React - Popup
 
 ## npm commands
 
@@ -43,24 +10,3 @@ $ rm -rf .git/ && git init
 * `$ npm t` - run tests
 * `$ npm run server:prod` - build for production and run simple server to show in the browser
 
-**Notice**
-
-In order to run command in production mode you'll need use env variable `NODE_ENV='production'`
-
-### Check for outdated packages
-
-```
-$ npm outdated
-```
-
-After that you can upgrade them:
-
-```
-$ npm update [-g] [<pkg>...]
-```
-
-If you want to upgrade to the latest version use:
-
-```
-$ npm update <pkg>@latest
-```
