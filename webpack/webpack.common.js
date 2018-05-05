@@ -42,7 +42,7 @@ const fontLoaders = [
 module.exports = (options) => {
     return {
         entry: {
-            bundle: './source/index.jsx',
+            bundle: './source/example/index.jsx',
         },
         output: {
             path: `${process.cwd()}/${options.buildFolder}`,
@@ -92,7 +92,7 @@ module.exports = (options) => {
             }),
 
             new HtmlWebpackPlugin({
-                template: './source/index.ejs',
+                template: './source/example/index.ejs',
                 filename: './index.html',
                 appVersion: options.appVersion,
             }),
