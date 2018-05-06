@@ -56,7 +56,7 @@ class Modal extends React.PureComponent {
         }
     }
 
-    onClickOutside = () => {
+    onClickOutside() {
         const { onClose } = this.props;
         if (!this.state.entering && this.state.open) {
             this.hide();
@@ -102,7 +102,7 @@ class Modal extends React.PureComponent {
         }
     }
 
-    handleTransitionEnd = () => {
+    handleTransitionEnd() {
         if (this.state.entering) {
             this.setState({
                 entering: false,
@@ -120,7 +120,9 @@ class Modal extends React.PureComponent {
         const { hideClickOutside } = this.props;
         if (hideClickOutside) {
             return (
-                <ModalClickOutside onClickOutside={this.onClickOutside}>
+                <ModalClickOutside
+                    onClickOutside={this.onClickOutside.bind(this)}
+                >
                     {this.props.children}
                 </ModalClickOutside>
             );
@@ -142,7 +144,7 @@ class Modal extends React.PureComponent {
             <div
                 style={this.state.style}
                 className={modalClass}
-                onTransitionEnd={this.handleTransitionEnd}
+                onTransitionEnd={this.handleTransitionEnd.bind(this)}
             >
                 {this.renderContent()}
             </div>

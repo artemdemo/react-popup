@@ -9,17 +9,9 @@ class Popup extends React.PureComponent {
     constructor(props) {
         super(props);
 
-        this.modalRef = null;
-        this.modalBgRef = null;
+        this.modalRef = React.createRef();
+        this.modalBgRef = React.createRef();
     }
-
-    setModalRef = (ref) => {
-        this.modalRef = ref;
-    };
-
-    setModalBgRef = (ref) => {
-        this.modalBgRef = ref;
-    };
 
     /**
      * @public
@@ -37,7 +29,7 @@ class Popup extends React.PureComponent {
         this.modalBgRef.hide();
     }
 
-    handleClose = () => {
+    handleClose() {
         const { onClose } = this.props;
         onClose && onClose();
         this.modalBgRef.hide();
@@ -50,7 +42,7 @@ class Popup extends React.PureComponent {
             if (showCloseBtn) {
                 return (
                     <button
-                        onClick={this.handleClose}
+                        onClick={this.handleClose.bind(this)}
                         className='popup-title-close'
                     >
                         ×
@@ -154,7 +146,7 @@ class Popup extends React.PureComponent {
             <React.Fragment>
                 <Modal
                     baseClass='popup-bg'
-                    ref={this.setModalBgRef}
+                    ref={this.modalBgRef}
                     hideClickOutside={false}
                     base={base}
                 >
@@ -163,7 +155,7 @@ class Popup extends React.PureComponent {
                 <Modal
                     className={className}
                     baseClass='popup'
-                    ref={this.setModalRef}
+                    ref={this.modalRef}
                     style={style}
                     hideClickOutside={hideClickOutside}
                     onClose={this.handleClose}
