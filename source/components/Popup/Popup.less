@@ -5,6 +5,16 @@
 
 @title-bg: lighten(@popup-bg, 10%);
 
+.buttonClear() {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
 .popup {
     border: 2px solid @title-bg;
     width: 470px;
@@ -52,6 +62,7 @@
     right: 15px;
 }
 .popup-title-close {
+    .buttonClear();
     flex-grow: 0;
 }
 

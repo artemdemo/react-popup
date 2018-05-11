@@ -17,24 +17,24 @@ class Popup extends React.PureComponent {
      * @public
      */
     show() {
-        this.modalRef.show();
-        this.modalBgRef.show();
+        this.modalRef.current.show();
+        this.modalBgRef.current.show();
     }
 
     /**
      * @public
      */
     hide() {
-        this.modalRef.hide();
-        this.modalBgRef.hide();
+        this.modalRef.current.hide();
+        this.modalBgRef.current.hide();
     }
 
     handleClose() {
         const { onClose } = this.props;
         onClose && onClose();
-        this.modalBgRef.hide();
-        this.modalRef.hide();
-    };
+        this.modalBgRef.current.hide();
+        this.modalRef.current.hide();
+    }
 
     renderTitle() {
         const { title, showCloseBtn } = this.props;

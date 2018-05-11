@@ -11,8 +11,8 @@ class AppView extends React.PureComponent {
     }
 
     showPopup() {
-        console.log(this.popupRef);
-    };
+        this.popupRef.current.show();
+    }
 
     render() {
         return (

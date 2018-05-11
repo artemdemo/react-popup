@@ -62,7 +62,7 @@ class Modal extends React.PureComponent {
             this.hide();
             onClose && onClose();
         }
-    };
+    }
 
     mountBase(base) {
         if (base) {
@@ -78,7 +78,6 @@ class Modal extends React.PureComponent {
      * @public
      */
     show() {
-        const { onOpen } = this.props;
         this.setState({
             entering: true,
         }, () => {
@@ -86,7 +85,6 @@ class Modal extends React.PureComponent {
                 this.setState({
                     open: true,
                 });
-                onOpen && onOpen();
             }, 10);
         });
     }
@@ -114,7 +112,11 @@ class Modal extends React.PureComponent {
                 leaving: false,
             });
         }
-    };
+        if (this.state.open) {
+            const { onOpen } = this.props;
+            onOpen && onOpen();
+        }
+    }
 
     renderContent() {
         const { hideClickOutside } = this.props;
