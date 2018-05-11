@@ -10,16 +10,16 @@ import './Modal.less';
 
 /**
  * This is base <Modal /> element for other "popup like" elements.
- * It doesn't provide any styling, only basic functionality.
+ * It provides only basic functionality.
  */
 class Modal extends React.PureComponent {
     constructor(props) {
         super(props);
 
-        // In same <Modal /> could appear more than one modals,
-        // Therefore it make sense to separate them in the same base.
+        // In same `base` could appear more than one Modals,
+        // Therefore it make sense to separate them.
         // (This variable will be used only if "base" is defined before mounting)
-        this.el = null;
+        this.modalWrapEl = null;
 
         this.state = {
             entering: false,
@@ -51,8 +51,8 @@ class Modal extends React.PureComponent {
 
     componentWillUnmount() {
         const { base } = this.props;
-        if (base && this.el) {
-            base.removeChild(this.el);
+        if (base && this.modalWrapEl) {
+            base.removeChild(this.modalWrapEl);
         }
     }
 
@@ -66,11 +66,11 @@ class Modal extends React.PureComponent {
 
     mountBase(base) {
         if (base) {
-            if (this.el) {
-                base.removeChild(this.el);
+            if (this.modalWrapEl) {
+                base.removeChild(this.modalWrapEl);
             }
-            this.el = document.createElement('div');
-            base.appendChild(this.el);
+            this.modalWrapEl = document.createElement('div');
+            base.appendChild(this.modalWrapEl);
         }
     }
 
@@ -154,7 +154,7 @@ class Modal extends React.PureComponent {
         if (base) {
             return createPortal(
                 modal,
-                this.el
+                this.modalWrapEl
             );
         }
         return modal;
