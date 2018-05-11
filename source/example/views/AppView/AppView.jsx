@@ -7,22 +7,42 @@ class AppView extends React.PureComponent {
     constructor(props) {
         super(props);
 
-        this.popupRef = React.createRef();
-    }
-
-    showPopup() {
-        this.popupRef.current.show();
+        this.infoPopupRef = React.createRef();
+        this.popupWithButtonsRef = React.createRef();
     }
 
     render() {
         return (
             <Container>
                 <Button
-                    onClick={this.showPopup.bind(this)}
+                    onClick={() => this.infoPopupRef.current.show()}
                 >
-                    Show popup
+                    Info popup
                 </Button>
-                <Popup ref={this.popupRef}>
+                &nbsp;
+                <Button
+                    onClick={() => this.popupWithButtonsRef.current.show()}
+                >
+                    Popup with buttons
+                </Button>
+                <Popup
+                    title='Info popup'
+                    ref={this.infoPopupRef}
+                >
+                    Some text
+                </Popup>
+                <Popup
+                    title='Popup with buttons'
+                    ref={this.popupWithButtonsRef}
+                    buttons={[
+                        {
+                            text: 'Cancel',
+                        },
+                        {
+                            text: 'Accept',
+                        },
+                    ]}
+                >
                     Some text
                 </Popup>
             </Container>

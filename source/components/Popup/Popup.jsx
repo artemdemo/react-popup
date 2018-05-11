@@ -94,13 +94,12 @@ class Popup extends React.PureComponent {
                 <div className='popup-buttons'>
                     {buttons.map((btnProps, index) => (
                         <div
-                            className='popup-buttons__button'
+                            className='popup-buttons__button-wrap'
                             key={`popup-buttons-${index}`}
                         >
                             <button
                                 {...btnProps}
                                 onClick={onClickHandler(btnProps)}
-                                key={`popup-buttons-${index}`}
                             >
                                 {btnProps.text}
                             </button>
